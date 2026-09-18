@@ -1,7 +1,272 @@
-* {
-  box-sizing: border-box;
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ------------------------- */
+/* 1. Primitive Tokens */
+/* ------------------------- */
+@theme inline {
+  /* base */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* surfaces */
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  /* primary */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  /* secondary */
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  /* muted */
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  /* accent */
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  /* state */
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+
+  /* ui */
+  --color-border: var(--border);
+  --color-input: var(--input);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+
+  /* focus */
+  --color-ring: var(--ring);
+
+  /* typography */
+  --font-sans: sans-serif;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --font-heading: var(--font-sans);
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+
+  /* app shell */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
 }
 
-body {
-  margin: 0;
+/* ------------------------- */
+/* 2. Semantic Tokens */
+/* ------------------------- */
+:root {
+  color-scheme: light;
+
+  --radius: 0.75rem;
+
+  /* base */
+  --background: oklch(0.94 0.025 85);
+  --foreground: oklch(0.25 0.025 55);
+
+  /* surfaces */
+  --card: oklch(0.975 0.018 88);
+  --card-foreground: oklch(0.25 0.025 55);
+
+  --popover: oklch(0.975 0.018 88);
+  --popover-foreground: oklch(0.25 0.025 55);
+
+  /* primary */
+  --primary: oklch(0.56 0.09 115);
+  --primary-foreground: oklch(0.98 0.01 90);
+
+  /* secondary */
+  --secondary: oklch(0.89 0.035 82);
+  --secondary-foreground: oklch(0.32 0.03 58);
+
+  /* muted */
+  --muted: oklch(0.91 0.025 82);
+  --muted-foreground: oklch(0.49 0.025 62);
+
+  /* accent */
+  --accent: oklch(0.7 0.12 55);
+  --accent-foreground: oklch(0.22 0.02 50);
+
+  /* state */
+  --destructive: oklch(0.55 0.18 28);
+  --destructive-foreground: oklch(0.98 0.01 90);
+
+  --success: oklch(0.53 0.1 140);
+  --success-foreground: oklch(0.98 0.01 90);
+
+  /* ui */
+  --border: oklch(0.77 0.035 72);
+  --input: oklch(0.95 0.02 85);
+
+  /* focus */
+  --ring: oklch(0.62 0.12 55);
+
+  /* layout */
+  --page-max-width: 1280px;
+  --page-padding: clamp(16px, 2vw, 24px);
+
+  /* app shell */
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--card-foreground);
+
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+/* ------------------------- */
+/* 3. Dark Mode */
+/* ------------------------- */
+.dark {
+  color-scheme: dark;
+
+  /* base */
+  --background: oklch(0.18 0.018 60);
+  --foreground: oklch(0.91 0.025 85);
+
+  /* surfaces */
+  --card: oklch(0.23 0.022 58);
+  --card-foreground: oklch(0.91 0.025 85);
+
+  --popover: oklch(0.26 0.025 58);
+  --popover-foreground: oklch(0.91 0.025 85);
+
+  /* primary */
+  --primary: oklch(0.72 0.1 115);
+  --primary-foreground: oklch(0.2 0.02 60);
+
+  /* secondary */
+  --secondary: oklch(0.31 0.025 62);
+  --secondary-foreground: oklch(0.89 0.025 85);
+
+  /* muted */
+  --muted: oklch(0.28 0.02 60);
+  --muted-foreground: oklch(0.69 0.03 80);
+
+  /* accent */
+  --accent: oklch(0.62 0.13 55);
+  --accent-foreground: oklch(0.98 0.01 90);
+
+  /* state */
+  --destructive: oklch(0.55 0.18 28);
+  --destructive-foreground: oklch(0.98 0.01 90);
+
+  --success: oklch(0.53 0.1 140);
+  --success-foreground: oklch(0.98 0.01 90);
+
+  /* ui */
+  --border: oklch(0.48 0.025 65 / 70%);
+  --input: oklch(0.34 0.025 62);
+
+  /* focus */
+  --ring: oklch(0.62 0.12 55);
+
+  /* app shell */
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--card-foreground);
+
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+/* ------------------------- */
+/* 4. Base (Reset + Defaults) */
+/* ------------------------- */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    @apply font-sans;
+  }
+
+  body {
+    min-height: 100dvh;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  #root {
+    min-height: 100dvh;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  :where(button, [href], input, select, textarea, summary, [role="button"], [tabindex]):focus-visible {
+    outline-offset: 1px;
+  }
+}
+
+/* ------------------------- */
+/* 5. Custom Utilities */
+/* ------------------------- */
+@utility container-page {
+  width: 100%;
+  max-width: var(--page-max-width);
+  margin-inline: auto;
+  padding-inline: var(--page-padding);
+}
+
+@utility page-shell {
+  min-height: 100dvh;
+  background-color: var(--background);
+  color: var(--foreground);
 }
