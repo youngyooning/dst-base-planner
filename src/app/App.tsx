@@ -1,3 +1,7 @@
+import { RouterProvider } from "react-router/dom";
+
+import { router } from "@/app/router";
+
 export function App() {
-  return <div>굶지마 베이스 플래너</div>;
+  return <RouterProvider router={router} />;
 }
