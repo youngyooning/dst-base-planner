@@ -1,7 +1,10 @@
+import { SidebarProvider } from "@/shared/ui/sidebar";
+import { EditorSidebar } from "@/widgets/EditorSidebar";
+
 export function EditorPage() {
   return (
-    <main>
-      <h1>EditorPage</h1>
-    </main>
+    <SidebarProvider>
+      <EditorSidebar />
+    </SidebarProvider>
   );
 }
